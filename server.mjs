@@ -23,8 +23,6 @@ App.get('/', (req,res) => {
 
 //----------------Setting my middleware--------------------
 App.use('/course', Course)
-App.use('/course', Course)
-App.use('/course', Course)
 
 //--------------Make our app listening to for incoming request-------------------------------------------------------------------------------
 App.listen(PORT, (err) => {

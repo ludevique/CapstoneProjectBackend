@@ -15,6 +15,15 @@ const CourseController = {
             res.status(400).json({ message:error.message})
         }
     },
+    //read course 
+    readCourse: async(req,res) => {
+        try {
+            const Course = await Course.find({});
+            res.status(200).json(Course)
+        }catch (error) {
+            res.status(500).json({message: 'server not responding'})
+        }
+    },
     //Update course by id
      updateCourse: async( req, res) => {
          try {

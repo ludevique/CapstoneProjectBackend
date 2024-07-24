@@ -14,7 +14,12 @@ const CourseSchema = new mongoose.Schema({
     url:{
         type:String,
         requred:true
-    }
+    },
+    // id:{
+    //     type:String,
+    //     required:true,
+    //     unique:true
+    // }
 })
 
 export default new mongoose.model('Course', CourseSchema)
