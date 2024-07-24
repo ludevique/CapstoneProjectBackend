@@ -11,6 +11,7 @@ const PORT = 3000;
 //---------import my connectDB function to my server file-------------------------------------------------------------------------------
 import { connectDB } from './db/connec.mjs';
 connectDB()
+
 //--------------------Specify we are going to used JSON data in our application--------------------------------------------------------------
 App.use(bodyParser.json())
 
