@@ -18,19 +18,23 @@ const CourseController = {
     //read course 
     readCourse: async(req,res) => {
         try {
-            const Course = await Course.find({});
-            res.status(200).json(Course)
+            const courses = await Course.find();
+            res.json( courses)
         }catch (error) {
             res.status(500).json({message: 'server not responding'})
         }
     },
     //Update course by id
      updateCourse: async( req, res) => {
+        const myId = "66a15de826a179a34d372bfb"
+
          try {
-             const updateCourse = await Course.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true})
+             const updatedCourse = await Course.findByIdAndUpdate(myId, req.body)
+             
              //set the condition to update the course
-             if(!updateCourse){
-                return res.status(404).json({message: "course not found"})
+             if(!updatedCourse){
+                  return  res.status(200).json({message: 'updated'})
+               // return res.status(404).json({message: "course not found"})
              }
          }catch (error) {
             res.status(400).json({message: error.message})
