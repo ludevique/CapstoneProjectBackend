@@ -4,7 +4,7 @@ import Course from '../Models/Courses.mjs'
 //For my controller i will have to create an object that will hold all my CRUD operations--------------------------
 
 const CourseController = {
-    //create a new course
+    //create a new course for POST method
     createCourse: async (req, res) => {
         try {
             // take informations of the request base on my model schema and use it to create a new course 
