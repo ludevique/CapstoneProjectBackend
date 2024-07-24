@@ -16,7 +16,11 @@ const CourseController = {
         }
     },
     //Update course
-    //updateCourse:
+    // updateCourse: async( req, res) => {
+    //     try {
+    //         const updateCourse = 
+    //     }
+    // }
     //delete course
 }
 
