@@ -15,13 +15,30 @@ const CourseController = {
             res.status(400).json({ message:error.message})
         }
     },
-    //Update course
-    // updateCourse: async( req, res) => {
-    //     try {
-    //         const updateCourse = 
-    //     }
-    // }
-    //delete course
+    //Update course by id
+     updateCourse: async( req, res) => {
+         try {
+             const updateCourse = await Course.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true})
+             //set the condition to update the course
+             if(!updateCourse){
+                return res.status(404).json({message: "course not found"})
+             }
+         }catch (error) {
+            res.status(400).json({message: error.message})
+         }
+     },
+    //delete course id
+    deleteCourse: async (req, res) => {
+        try {
+            const deleteCourse = await Course.findByIdAndDelete(req.body.id)
+            if (!deleteCourse) 
+                return 
+                    res.status(404).json({message: 'Course not founded'});
+                    res.status(200).json({message: 'successfully delete'})
+        }catch (error) {
+            res.status(500).json({message: 'server not responding'})
+        }
+    }
 }
 
 export default CourseController

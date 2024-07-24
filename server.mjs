@@ -16,11 +16,19 @@ connectDB()
 //--------------------Specify we are going to used JSON data in our application--------------------------------------------------------------
 App.use(bodyParser.json())
 
+//testing if it works on my localhost
+App.get('/', (req,res) => {
+    res.send('welcome to my server side application')
+})
+
+//----------------Setting my middleware--------------------
+App.use('/course', Course)
+App.use('/course', Course)
 App.use('/course', Course)
 
 //--------------Make our app listening to for incoming request-------------------------------------------------------------------------------
 App.listen(PORT, (err) => {
-    if(err) {resizeBy.status(500).send(`server is not working`)
+    if(err) {res.status(500).send(`server is not working`)
 
     }else console.log(`server is running`);
 })
