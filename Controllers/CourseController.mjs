@@ -26,16 +26,17 @@ const CourseController = {
     },
     //Update course by id
      updateCourse: async( req, res) => {
-        const myId = "66a15de826a179a34d372bfb"
 
          try {
-             const updatedCourse = await Course.findByIdAndUpdate(myId, req.body)
+             const updatedCourse = await Course.findByIdAndUpdate(req.params.id, req.body)
              
              //set the condition to update the course
-             if(!updatedCourse){
-                  return  res.status(200).json({message: 'updated'})
-               // return res.status(404).json({message: "course not found"})
+             if(!updatedCourse) {
+                return res.status(404).json({message: 'course not found'});
              }
+             
+             //response with success
+             res.status(200).json({message: 'course updated successfully'})
          }catch (error) {
             res.status(400).json({message: error.message})
          }
@@ -43,8 +44,8 @@ const CourseController = {
     //delete course id
     deleteCourse: async (req, res) => {
         try {
-            const deleteCourse = await Course.findByIdAndDelete(req.body.id)
-            if (!deleteCourse) 
+            const deletedCourse = await Course.findByIdAndDelete(req.body.id)
+            if (!deletedCourse) 
                 return 
                     res.status(404).json({message: 'Course not founded'});
                     res.status(200).json({message: 'successfully delete'})
