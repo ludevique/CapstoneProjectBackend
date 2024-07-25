@@ -44,11 +44,14 @@ const CourseController = {
     //delete course id
     deleteCourse: async (req, res) => {
         try {
-            const deletedCourse = await Course.findByIdAndDelete(req.body.id)
-            if (!deletedCourse) 
-                return 
-                    res.status(404).json({message: 'Course not founded'});
-                    res.status(200).json({message: 'successfully delete'})
+            const deletedCourse = await Course.findByIdAndDelete(req.params.id)
+            //check if no course was found to delete
+            if (!deletedCourse) {
+                return res.status(404).json({message: 'Course not founded'});
+            } 
+            //in case of course found and deleted    
+            res.status(200).json({message: 'course successfully deleted'})
+            
         }catch (error) {
             res.status(500).json({message: 'server not responding'})
         }
