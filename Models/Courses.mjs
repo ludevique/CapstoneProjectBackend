@@ -4,16 +4,16 @@ import mongoose from 'mongoose'
 const CourseSchema = new mongoose.Schema({
     name:{
         type:String,
-        required:true,
+        required: true,
         unique: true,
     },
     Description:{
-        type:String,
+        type: String,
         required:true,
     },
     url:{
-        type:String,
-        requred:true
+        type: String,
+        requred: true
     },
     // id:{
     //      type:String,

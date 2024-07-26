@@ -35,6 +35,7 @@ const CourseController = {
                 return res.status(404).json({message: 'course not found'});
              }
              
+             
              //response with success
              res.status(200).json({message: 'course updated successfully'})
          }catch (error) {
@@ -51,7 +52,7 @@ const CourseController = {
             } 
             //in case of course found and deleted    
             res.status(200).json({message: 'course successfully deleted'})
-            
+
         }catch (error) {
             res.status(500).json({message: 'server not responding'})
         }
