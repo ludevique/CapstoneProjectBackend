@@ -2,7 +2,7 @@
   //----First import mongoose to interact with my database--------------
 import mongoose from "mongoose";
   //-----------Set dotenv to load variables i have inside the file--------------
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
   //------------Loading my hidden variables from the .env file into my app------------
 dotenv.config()
 

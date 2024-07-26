@@ -1,5 +1,5 @@
 //import the schema
-import Course from '../Models/Courses.mjs'
+import Course from '../Models/CoursesModel.mjs'
 
 //For my controller i will have to create an object that will hold all my CRUD operations--------------------------
 
