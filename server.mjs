@@ -46,7 +46,7 @@ App.get('/seed',(async (req, res) => {
 
 //----------------Setting my middleware-----------------------------------------------------------------------------------------------------
 App.use('/course', Course)
-App.use('/catalog', routeCourse);
+App.use('/front/catalog', routeCourse);
 
 //--------------Make our app listening to for incoming request-------------------------------------------------------------------------------
 App.listen(PORT, (err) => {
