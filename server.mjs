@@ -3,6 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import routeCourse from './Routes/Course.mjs';
 import courseData from './utilities/data.mjs';
+import cors from 'cors'
 
 //-----------------------Create my App using the express object-----------------------------------------------------------------------------
 const App = express ();
@@ -18,6 +19,7 @@ connectDB()
 //--------------------Specify we are going to used JSON data in our application--------------------------------------------------------------
  App.use(bodyParser.json())
 //App.use(express.json());
+App.use(cors())
 
 //testing if it works on my localhost
 App.get('/', (req,res) => {
@@ -26,20 +28,20 @@ App.get('/', (req,res) => {
 
 
 //----------------------------------------------------------------------------------------------------------------------------------------
-   //----------commented this lines after populated my database and want to avoid someone access to it!
-//Seed route----------------------------
-// App.get('/seed',(async (req, res) => {
-//     try {
-//         await Course.deleteMany({});//deleted all files in my course's collection
-//         await Course.create(courseData)
-//         //res.send('seeding database')
-//         res.status(200).json({msg: "successfully created"})
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({ msg: 'I am Reptar! Here me ERAWWWWWR!!!!!!'});
+ //  ----------commented this lines after populated my database and want to avoid someone access to it!
+// Seed route----------------------------
+App.get('/seed',(async (req, res) => {
+    try {
+        await Course.deleteMany({});//deleted all files in my course's collection
+        await Course.create(courseData)
+        //res.send('seeding database')
+        res.status(200).json({msg: "successfully created"})
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ msg: 'I am Reptar! Here me ERAWWWWWR!!!!!!'});
 
-//     }
-// }))
+    }
+}))
 //------------------------------------------------------------------------------------------------------------------------------------------
 
 //----------------Setting my middleware-----------------------------------------------------------------------------------------------------
